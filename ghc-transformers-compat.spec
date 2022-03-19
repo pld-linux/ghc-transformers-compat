@@ -14,13 +14,13 @@ Source0:	http://hackage.haskell.org/package/transformers-compat-%{version}/%{pkg
 URL:		http://hackage.haskell.org/package/transformers-compat
 BuildRequires:	ghc >= 6.12.3
 BuildRequires:	ghc-base >= 3
-BuildRequires:	ghc-generic-deriving >=1.10
+BuildRequires:	ghc-generic-deriving >= 1.10
 BuildRequires:	ghc-ghc-prim
 BuildRequires:	ghc-mtl
 BuildRequires:	ghc-transformers >= 0.2
 %if %{with prof}
 BuildRequires:	ghc-base-prof >= 3
-BuildRequires:	ghc-generic-deriving-prof >=1.10
+BuildRequires:	ghc-generic-deriving-prof >= 1.10
 BuildRequires:	ghc-ghc-prim-prof
 BuildRequires:	ghc-mtl-prof
 BuildRequires:	ghc-transformers-prof >= 0.2
@@ -29,7 +29,7 @@ BuildRequires:	rpmbuild(macros) >= 1.608
 Requires(post,postun):	/usr/bin/ghc-pkg
 %requires_eq	ghc
 Requires:	ghc-base >= 3
-Requires:	ghc-generic-deriving >=1.10
+Requires:	ghc-generic-deriving >= 1.10
 Requires:	ghc-ghc-prim
 Requires:	ghc-mtl
 Requires:	ghc-transformers >= 0.2
@@ -53,7 +53,7 @@ Summary(pl.UTF-8):	Biblioteka profilująca %{pkgname} dla GHC
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	ghc-base-prof >= 3
-Requires:	ghc-generic-deriving-prof >=1.10
+Requires:	ghc-generic-deriving-prof >= 1.10
 Requires:	ghc-ghc-prim-prof
 Requires:	ghc-mtl-prof
 Requires:	ghc-transformers-prof >= 0.2
