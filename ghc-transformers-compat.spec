@@ -4,6 +4,7 @@
 #
 %define		pkgname	transformers-compat
 Summary:	A small compatibility shim for the transformers library
+Summary(pl.UTF-8):	Mała nakładka zgodności dla biblioteki transformers
 Name:		ghc-%{pkgname}
 Version:	0.6.5
 Release:	2
@@ -12,26 +13,31 @@ Group:		Development/Languages
 Source0:	http://hackage.haskell.org/package/transformers-compat-%{version}/%{pkgname}-%{version}.tar.gz
 # Source0-md5:	4da06165ca543de01f5419c47f53442a
 URL:		http://hackage.haskell.org/package/transformers-compat
-BuildRequires:	ghc >= 6.12.3
-BuildRequires:	ghc-base >= 3
+# ghc < 8 requires also ghc-fail 4.9.x
+BuildRequires:	ghc >= 8.0
+BuildRequires:	ghc-base >= 4.3
+BuildRequires:	ghc-base < 5
 BuildRequires:	ghc-generic-deriving >= 1.10
+BuildRequires:	ghc-generic-deriving < 2
 BuildRequires:	ghc-ghc-prim
-BuildRequires:	ghc-mtl
+BuildRequires:	ghc-mtl >= 2.0
+BuildRequires:	ghc-mtl < 2.2
 BuildRequires:	ghc-transformers >= 0.2
+BuildRequires:	ghc-transformers < 0.6
 %if %{with prof}
-BuildRequires:	ghc-base-prof >= 3
+BuildRequires:	ghc-base-prof >= 4.3
 BuildRequires:	ghc-generic-deriving-prof >= 1.10
 BuildRequires:	ghc-ghc-prim-prof
-BuildRequires:	ghc-mtl-prof
+BuildRequires:	ghc-mtl-prof >= 2.0
 BuildRequires:	ghc-transformers-prof >= 0.2
 %endif
 BuildRequires:	rpmbuild(macros) >= 1.608
 Requires(post,postun):	/usr/bin/ghc-pkg
 %requires_eq	ghc
-Requires:	ghc-base >= 3
+Requires:	ghc-base >= 4.3
 Requires:	ghc-generic-deriving >= 1.10
 Requires:	ghc-ghc-prim
-Requires:	ghc-mtl
+Requires:	ghc-mtl >= 2.0
 Requires:	ghc-transformers >= 0.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -46,6 +52,13 @@ This package includes backported versions of types that were added to
 transformers in transformers 0.3, 0.4, and 0.5 for users who need
 strict transformers 0.2 or 0.3 compatibility to run on old versions of
 the platform, but also need those types.
+
+%description -l pl.UTF-8
+Ten pakiet zawiera zbackportowane wersje biblioteki types, które
+zostały dodane do biblioteki transformers w wersji 0.3, 0.4 oraz 0.5
+dla użytkowników, którzy potrzebują ścisłej zgodności z transformers
+0.2 lub 0.3, aby działały na starszej wersji platformy, ale potrzebują
+też nowych typów.
 
 %package prof
 Summary:	Profiling %{pkgname} library for GHC
