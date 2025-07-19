@@ -132,7 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc LICENSE
 %{_libdir}/%{ghcdir}/package.conf.d/%{pkgname}.conf
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}
-%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHStransformers-compat-%{version}-*.so
+%attr(755,root,root) %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHStransformers-compat-%{version}-*.so
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHStransformers-compat-%{version}-*.a
 %exclude %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHStransformers-compat-%{version}-*_p.a
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/*.hi
